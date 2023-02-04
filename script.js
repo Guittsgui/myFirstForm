@@ -10,6 +10,7 @@ const nome = document.querySelector('#nome')
 const email = document.querySelector('#email')
 const password = document.querySelector('#senha')
 const msg = document.querySelector('.msg')
+const greenMsg= document.querySelector('.greenMsg')
 const btSubtmit = document.querySelector('#btRegistra').addEventListener('click', validaCampos)
 const listaUsers = []
 
@@ -30,7 +31,7 @@ function validaCampos(e){
             showErrorMsg(password,msg)
             return
         }
-        if(hasUser()){
+        if(hasUser(email.value)){
             const msg = 'Email já Existente'
             showErrorMsg(email,msg)
             return     
@@ -38,15 +39,16 @@ function validaCampos(e){
 
         const novoUsuario = constructUser(nome.value,email.value,password.value)
         listaUsers.push(novoUsuario)
-        console.log(novoUsuario)
-        console.log(listaUsers)
+        showCadastroMsg()
+        limpaCampos()
         
     }
-    function hasUser(){
+
+    function hasUser(e){
         if( listaUsers.length == 0){
             return false 
-        }  
-        return true
+        } 
+            return true
     }
 
 
@@ -64,6 +66,17 @@ function showErrorMsg(input,mensagem){
         msg.innerHTML=''
         input.style.borderColor='black'
     },2000)
+}
+function showCadastroMsg(){
+    greenMsg.style.display ="block"
+    setTimeout(()=>{
+        greenMsg.style.display="none"
+    },2000)
+}
+function limpaCampos(){
+    nome.value = ''
+    email.value = ''
+    password.value = ''
 }
 class User{
     constructor(name,email,password){
