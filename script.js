@@ -31,7 +31,7 @@ function validaCampos(e){
             showErrorMsg(password,msg)
             return
         }
-        if(hasUser(email.value)){
+        if(hasUser()){
             const msg = 'Email já Existente'
             showErrorMsg(email,msg)
             return     
@@ -48,7 +48,7 @@ function validaCampos(e){
         if( listaUsers.length == 0){
             return false 
         } 
-            return true
+        // e ai josé?
     }
 
 
