@@ -43,6 +43,9 @@ form{
 .formBox input{
     height: 20px;
     width: 180px;
+    border-color: black;
+    border-radius: 5px;
+    padding-left: 24px;
 }
 .formBox input:focus{
     outline: none;
@@ -62,6 +65,8 @@ img:hover{
     width: 120px ;
     margin-top: 20px;
     border-radius: 5px;
+    text-align: center;
+    padding-left: 0px;
     
 }
 #btRegistra:hover{
@@ -72,4 +77,14 @@ img:hover{
 label{
     display: block;
     margin: 5px 0px;
+}
+.msgBox{
+    height: 25px;
+}
+.msg{
+    display: none;
+    margin-top:10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
 }
