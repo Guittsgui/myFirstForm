@@ -31,7 +31,7 @@ function validaCampos(e){
             showErrorMsg(password,msg)
             return
         }
-        if(hasUser()){
+        if(hasUser() != undefined){
             const msg = 'Email já Existente!'
             showErrorMsg(email,msg)
             return     
@@ -41,13 +41,18 @@ function validaCampos(e){
         listaUsers.push(novoUsuario)
         showCadastroMsg()
         limpaCampos()
+        console.log(listaUsers)
         
     }
 
-    function hasUser(){
+    function hasUser(){         
+       let has = listaUsers.find((li)=>{
+            return li.email == email.value
+        })
+        console.log(has)
+        return has
         
     }
-
 
 function isEmailValid(email){
     const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
