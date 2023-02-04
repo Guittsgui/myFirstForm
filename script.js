@@ -10,8 +10,10 @@ const nome = document.querySelector('#nome')
 const email = document.querySelector('#email')
 const password = document.querySelector('#senha')
 const msg = document.querySelector('.msg')
-const btSubtmit = document.querySelector('#btRegistra').addEventListener('click', clicou)
-function clicou(e){
+const btSubtmit = document.querySelector('#btRegistra').addEventListener('click', validaCampos)
+const listaUsers = []
+
+function validaCampos(e){
     e.preventDefault()
         if(nome.value.length < 3){
             const msg = 'Nome - min 03 caracteres'
@@ -28,9 +30,26 @@ function clicou(e){
             showErrorMsg(password,msg)
             return
         }
-        console.log('chegou aqui')
-     
+        if(hasUser()){
+            const msg = 'Email já Existente'
+            showErrorMsg(email,msg)
+            return     
+        }
+
+        const novoUsuario = constructUser(nome.value,email.value,password.value)
+        listaUsers.push(novoUsuario)
+        console.log(novoUsuario)
+        console.log(listaUsers)
+        
     }
+    function hasUser(){
+        if( listaUsers.length == 0){
+            return false 
+        }  
+        return true
+    }
+
+
 function isEmailValid(email){
     const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
     if (emailRegex.test(email)){
@@ -46,4 +65,14 @@ function showErrorMsg(input,mensagem){
         input.style.borderColor='black'
     },2000)
 }
-
+class User{
+    constructor(name,email,password){
+        this.name=name
+        this.email = email
+        this.password = password
+    }
+}
+function constructUser(name,email,password){
+    const user = new User(name,email,password)
+    return user
+}
