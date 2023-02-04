@@ -14,7 +14,6 @@ const btSubtmit = document.querySelector('#btRegistra').addEventListener('click'
 
 function clicou(e){
     e.preventDefault()
-
         if(nome.value.length < 3){
             const msg = 'Mínimo de 03 Caracteres'
             showErrorMsg(nome,msg)
