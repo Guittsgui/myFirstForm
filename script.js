@@ -11,8 +11,11 @@ const cpemail = document.querySelector('#email')
 const cppassword = document.querySelector('#password')
 const msgcontador = document.querySelector('.msgContador')
 const marea = document.querySelector('.marea')
+const msglogin = document.querySelector('.msglogin')
 const namelogin = document.querySelector('#namelogin')
 const passwordlogin = document.querySelector('#passwordlogin')
+const infouser = document.querySelector('.infouser')
+const logouser = document.querySelector('.logouser')
 const pgLogin = document.querySelector('.pgLogin').addEventListener('click',()=>{
    loginBox.style.display='none'
    registerBox.style.display='flex'
@@ -62,7 +65,7 @@ const pgRegister = document.querySelector('.pgRegister').addEventListener('click
      })
      console.log(user)
      if(user){
-        logarUsuario()
+        logarUsuario(user)
         limpaCampos()
      }else{
          errorUsuario()
@@ -89,6 +92,7 @@ const pgRegister = document.querySelector('.pgRegister').addEventListener('click
     input.style.borderColor='red'
     marea.innerHTML= `${msg}`
     marea.style.color ='red'
+    input.value = ''
     setTimeout(()=>{
         input.style.borderColor='black'
         marea.innerHTML= ''
@@ -120,14 +124,21 @@ const pgRegister = document.querySelector('.pgRegister').addEventListener('click
      namelogin.value = ''
      passwordlogin.value = ''
   }
- function logarUsuario(){
+ function logarUsuario(user){
     container.style.display = 'none'
     containerlogado.style.display ='flex'
+    infouser.innerHTML = `<p>Nome: ${user.name}</p><p>Email: ${user.email}</p><p>Senha: ${user.password}</p>`
+    logouser.innerHTML = `<p>${user.name}</p>`
  }
  function signout(){
     containerlogado.style.display ='none'
     container.style.display = 'flex'
+    logouser.innerHTML = `<p>Não Logado</p>`
  }
  function errorUsuario(){
-     console.log('errou')
+    msglogin.innerHTML='Email ou Senha Incorretos!'
+    msglogin.style.color='red'
+    setTimeout(() => {
+        msglogin.innerHTML=''
+    }, 2000);
  }
