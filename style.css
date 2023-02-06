@@ -89,10 +89,6 @@ body{
     color: white;
     text-decoration: underline;
 }
-.active{
-    text-decoration: underline;
-}
-
 /* CONTAINER REGISTER */
 .loginbox{
     width: 400px;
@@ -110,6 +106,7 @@ body{
     margin-bottom: 20px;
     height: 30px;
     width: 250px;
+    border-color: black;
 }
 .loginbox input:focus{
     outline: none;
@@ -159,6 +156,7 @@ body{
     margin-bottom: 20px;
     height: 30px;
     width: 250px;
+    border-color: black;
 }
 .registerbox input:focus{
     outline: none;
@@ -166,6 +164,7 @@ body{
 .registerbox button{
     width: 100px;
     height: 30px;
+    display: block;
 }
 .registerbox button:hover{
     cursor: pointer;
@@ -179,5 +178,14 @@ body{
 .loginn{
     display: flex;
     justify-content: center;
+}
+
+.marea{
+    height: 20px;
+    text-align: center;
+    color: red;
+    font-weight: bolder;
+    font-size: 13px;
+    margin-bottom: 7px;
 }
 
