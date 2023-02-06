@@ -19,10 +19,12 @@ const logouser = document.querySelector('.logouser')
 const pgLogin = document.querySelector('.pgLogin').addEventListener('click',()=>{
    loginBox.style.display='none'
    registerBox.style.display='flex'
+   limpaCampos()
 })
 const pgRegister = document.querySelector('.pgRegister').addEventListener('click',()=>{
     registerBox.style.display='none'
     loginBox.style.display='flex'
+    limpaCampos()
 })
 
  showContador()
