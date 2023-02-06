@@ -183,9 +183,53 @@ body{
 .marea{
     height: 20px;
     text-align: center;
-    color: red;
     font-weight: bolder;
     font-size: 13px;
     margin-bottom: 7px;
+}
+.containerLogado{
+    width: 800px;
+    height: 400px;
+    background-color: rgb(193, 252, 232);
+    margin: auto;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.342);
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    margin-top:30px;
+    color: gray;
+}
+.logadotitle{
+    background-color: rgb(138, 192, 240);
+    height: 100px;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.logadomenu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    font-size: 20px;
+    align-items: center;
+    }
+.logadomenu{
+
+}
+.logadomenu button{
+    width: 200px;
+    height: 30px;
+    margin-top: 40px;
+}
+.logadomenu p{
+    margin-bottom: 10px;
+}
+.logadomenu button:hover{
+   cursor: pointer;
+   background-color: antiquewhite;
+   color: white;
 }
 

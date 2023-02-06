@@ -1,14 +1,18 @@
 const listaRegistros = []
 const container = document.querySelector('.container')
+const containerlogado = document.querySelector('.containerLogado')
 const loginBox = document.querySelector('.loginbox')
 const registerBox = document.querySelector('.registerbox')
-const btlogar = document.querySelector('.logar')
+const btlogar = document.querySelector('.logar').addEventListener('click',verificaLogin)
 const btregister = document.querySelector('.register').addEventListener('click',verificaCampos)
+const btsignout = document.querySelector('.signout').addEventListener('click',signout)
 const cpname = document.querySelector('#name')
 const cpemail = document.querySelector('#email')
 const cppassword = document.querySelector('#password')
 const msgcontador = document.querySelector('.msgContador')
 const marea = document.querySelector('.marea')
+const namelogin = document.querySelector('#namelogin')
+const passwordlogin = document.querySelector('#passwordlogin')
 const pgLogin = document.querySelector('.pgLogin').addEventListener('click',()=>{
    loginBox.style.display='none'
    registerBox.style.display='flex'
@@ -24,22 +28,46 @@ const pgRegister = document.querySelector('.pgRegister').addEventListener('click
  function verificaCampos(e){
     e.preventDefault()
     console.log(cpname)
-
     if ( cpname.value.length < 3){
         let msg = 'Nome: min 03 caracteres'
         showError(cpname,msg)
+        return
     }
-
-    if(cpemail){
+    if(!validaEmail()){
+        let msg= 'Insira um email válido'
+        showError(cpemail,msg)
+        return
     }
-
-    if( cppassword < 3){
+    if( cppassword.value.length < 3){
+        let msg ='Senha: min 03 caracteres'
+        showError(cppassword,msg)
+        return
     }
-    // verifica email usuário lista
-    // cria usuário
-    // adiciona na lista
-    // atualiza msg lá encima.
+    if(verificaLista()){
+        let msg='Email já cadastrado'
+        showError(cpemail,msg)
+        return
+    }
+    const user = userConstructor(cpname.value,cpemail.value,cppassword.value)
+    listaRegistros.push(user)
+    showContador()
+    limpaCampos()
+    showAccept()
+ }
 
+ function verificaLogin(){
+
+     let user = listaRegistros.find((i)=> {
+         return i.email == namelogin.value && i.password == passwordlogin.value 
+     })
+     console.log(user)
+     if(user){
+        logarUsuario()
+        limpaCampos()
+     }else{
+         errorUsuario()
+         limpaCampos()
+     }
  }
 
  class User{
@@ -60,8 +88,46 @@ const pgRegister = document.querySelector('.pgRegister').addEventListener('click
  function showError(input,msg){
     input.style.borderColor='red'
     marea.innerHTML= `${msg}`
+    marea.style.color ='red'
     setTimeout(()=>{
         input.style.borderColor='black'
         marea.innerHTML= ''
     },2000)
+ }
+ function showAccept(){
+     marea.innerHTML= "Usuário Cadastrado com Sucesso"
+     marea.style.color='green'
+     setTimeout(()=>{
+        marea.innerHTML= ''
+    },2000)
+ }
+ function validaEmail(){
+     const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+     if (emailRegex.test(cpemail.value)){
+         return true
+     }return false
+ }
+ function verificaLista(){
+    let has = listaRegistros.find((i)=>{
+        return i.email === cpemail.value
+    })
+    return has
+ }
+ function limpaCampos(){
+     cpemail.value = ''
+     cppassword.value = ''
+     cpname.value = ''
+     namelogin.value = ''
+     passwordlogin.value = ''
+  }
+ function logarUsuario(){
+    container.style.display = 'none'
+    containerlogado.style.display ='flex'
+ }
+ function signout(){
+    containerlogado.style.display ='none'
+    container.style.display = 'flex'
+ }
+ function errorUsuario(){
+     console.log('errou')
  }
