@@ -89,6 +89,10 @@ body{
     color: white;
     text-decoration: underline;
 }
+.active{
+    text-decoration: underline;
+}
+
 /* CONTAINER REGISTER */
 .loginbox{
     width: 400px;
@@ -176,3 +180,4 @@ body{
     display: flex;
     justify-content: center;
 }
+
