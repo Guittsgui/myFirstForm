@@ -31,8 +31,8 @@
         <div class="acaoBox">
             <div class="action">
                 <ul class="ActionList">
-                    <li><a href="#" class="selected">Register</a></li>
-                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#" class="pgRegister">Register</a></li>
+                    <li><a href="#" class="pgLogin">Sign In</a></li>
                 </ul>
             </div>
             <div class="acaoInfos">
@@ -45,31 +45,49 @@
 
         <div class="loginbox"> 
             <div class="title">
-                Create Account
+                <h2>Create Account</h2>
             </div> 
             <div class="logos">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+                <img src="img/github.png" alt="">
+                <img src="img/fb.png" alt="">
+                <img src="img/insta.png" alt="">
+                <img src="img/linkedin.png" alt="">
             </div>
             <div class="subtitle">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio accusantium aspernatur minima natus error, distinctio architecto esse soluta eveniet, quasi laudantium ea officiis nostrum aperiam dicta laborum nulla minus iste.</p>
+                <p>Todos os campos são obrigatórios.</p>
             </div>
             <div class="form">
-                <form action="">
+                <form action="" id="formregister">
                     <label for="name"></label>
                     <input type="text" placeholder="nome" autocomplete="off" id="name">
                     <label for="email"></label>
                     <input type="email" placeholder="email" autocomplete="off" id="email">
                     <label for="password"></label>
                     <input type="password" placeholder="Senha" autocomplete="off" id="password">
-                    <button class="register">SIGN UP</button>
+                    <div class="botaoArea">
+                        <button class="register">SIGN UP</button>
+                    </div>
+
                 </form>
             </div>
         </div>
 
 
         <div class="registerbox">
+            <div class="textArea"> 
+                <h2> Login</h2>
+            </div>
+            <div>
+                <form action="#">
+                    <label for="namelogin"></label>
+                    <input type="text" placeholder="nome" autocomplete="off" id="namelogin">
+                    <label for="password"></label>
+                    <input type="password" placeholder="password" autocomplete="off" id="passwordlogin">
+                    <div class="loginn">
+                        <button class="logar">LOGIN</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     

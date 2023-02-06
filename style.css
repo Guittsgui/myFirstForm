@@ -85,21 +85,93 @@ body{
     font-size: 20px;
     font-weight: bolder;
 }
-.selected{
-    text-decoration: underline;
+.acaoBox a:hover{
     color: white;
+    text-decoration: underline;
 }
-
-
-
-
+/* CONTAINER REGISTER */
 .loginbox{
     width: 400px;
     height: 400px;
+    color: rgba(36, 250, 179, 0.774);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  
 }
+.loginbox input{
+    display: block;
+    margin-bottom: 20px;
+    height: 30px;
+    width: 250px;
+}
+.loginbox input:focus{
+    outline: none;
+}
+.loginbox h2{
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.loginbox p{
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.loginbox button{
+    width: 100px;
+    height: 30px;
+}
+.loginbox button:hover{
+    cursor: pointer;
+    background-color: rgba(127, 255, 212, 0.527);
+    color: white;
+}
+.logos img{
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.botaoArea {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* LOGIN BOX*/
 .registerbox{
-    background-color: rgb(255, 0, 0);
     width: 400px;
     height: 400px;
+    color: rgba(36, 250, 179, 0.774);
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.registerbox input{
+    display: block;
+    margin-bottom: 20px;
+    height: 30px;
+    width: 250px;
+}
+.registerbox input:focus{
+    outline: none;
+}
+.registerbox button{
+    width: 100px;
+    height: 30px;
+}
+.registerbox button:hover{
+    cursor: pointer;
+    background-color: rgba(127, 255, 212, 0.527);
+    color: white;
+}
+.registerbox h2{
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+.loginn{
+    display: flex;
+    justify-content: center;
 }
